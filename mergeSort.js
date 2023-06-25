@@ -1,16 +1,13 @@
-function mergeSort(x) {
-    if (x.length == 0) return "Introduce un array no vacío"
-    if (x.length == 1) return x
+function mergeSort(arr) {
+    if (arr.length == 0) return "Introduce un array no vacío"
+    if (arr.length == 1) return arr
 
     // Recursive case. First, divide the list into equal-sized sublists
     // consisting of the first half and second half of the list.
     // This assumes lists start at index 0.
-    let left = []
-    let right = []
-    for (let i = 0; i < x.length; i++) {
-        if (i < x.length/2) left.push(x[i])
-        else right.push(x[i])
-    }
+    const mid = Math.floor(arr.length / 2);
+	let left = arr.slice(0, mid);
+	let right = arr.slice(mid, arr.length);
 
     // Recursively sort both sublists.
     left = mergeSort(left)
